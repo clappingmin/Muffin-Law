@@ -35,7 +35,7 @@
         <footer class="card-footer">
             <a href="{% url 'todo:todolist' %}" class="card-footer-item"><button class="button is-link is-fullwidth">뒤로가기</button></a>
             <a href="{% url 'todo:todolist_update' todolist.pk %}" class="card-footer-item"><button class="button is-warning is-fullwidth">수정하기</button></a>
-            <a href="{% url 'todo:todolist_delete' todolist.pk %}" class="card-footer-item"><button class="button is-danger is-fullwidth">삭제하기</button></a>
+            <a href="{% url 'todo:todolist_delete' todolist.pk %}" class="card-footer-item"><button class="button is-danger is-fullwidth">완료</button></a>
           </footer>
       </div>
     
