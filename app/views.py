@@ -192,3 +192,5 @@ def a(request):
 
     context = {"todays": todays}
     return render(request, 'a.html', context)
+
+
