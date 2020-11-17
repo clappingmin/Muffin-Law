@@ -110,26 +110,20 @@ a { text-decoration:none }
 </div>
    
     <center>
-        <div class="Handon3gyeopsal600g-font">
+        <div class="Handon3gyeopsal600g-font" style="color:black;">
     <br><br><br><br><br>
         {%if user.is_authenticated%}
-    <h2>
-        <div>{{user.profile.nickname}}님의 정보</div>
-    </h2>
-    <div>
+    <div style="color:black; font-size:2rem;">
+        {{user.profile.nickname}}님의 정보
+    </div>
+    <div style="color:black; font-size:1.1rem;">
         현재 포인트는
         {{user.profile.user_test_point}}점입니다.
     </div>
-    <!-- <div>
-        <h3>현재 포인트 순위 현황</h3>
-        {%for r in rank%}
-        {{r.nickname}}<br>
-        {%endfor%}W
-    </div> -->
-    <br>
     <hr>
-    <div>아이디 : {{user.username}}</div>
+    <div style="font-size:1.1rem;">현재 아이디 : {{user.username}}</div>
     <div class="login_container">
+    <br>
         <h4>비밀번호 변경</h4>
         <form method="POST" action="{% url 'user_profile' %}" class="login_form">
             {% csrf_token %}
@@ -137,18 +131,19 @@ a { text-decoration:none }
             <div class="login_input_container">
                 <div class="username_form_text">현재 비밀번호</div>
                 <div class="input_container">
-                    <input class="login_input" name="origin_password" type="password">
+                    <input class="login_input" name="origin_password" type="password"  style="width:300px;height:35px;font-size:30px;">
                 </div>
 
                 <div class="password_form_text">새로운 비밀번호</div>
                 <div class="input_container">
-                    <input class="login_input" name="password1" type="password">
+                    <input class="login_input" name="password1" type="password" style="width:300px;height:35px;font-size:30px;">
                 </div>
                 <div class="confirm_password_form_text">비밀번호 확인</div>
                 <div class="input_container">
-                    <input class="login_input" name="password2" type="password">
+                    <input class="login_input" name="password2" type="password" style="width:300px;height:35px;font-size:30px;">
                 </div>
             </div>
+            <br>
             <div class="login_btn_container">
                 <input type="submit" class="login_btn" value="Submit">
             </div>
