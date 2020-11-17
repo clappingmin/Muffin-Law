@@ -29,7 +29,7 @@ $( function() {
 
 
 <div class="columns is-centered">
-   {{ form.non_field_errors }}
+  {{ form.non_field_errors }}
     <form action="" method="POST" enctype="multiplart/form-data" style="margin-top: 50px;">
         {% csrf_token %}
         {% for field in form %}
