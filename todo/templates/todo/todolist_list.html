@@ -1,296 +1,115 @@
-<!DOCTYPE html>
-<html lang="ko">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-    <!-- Title -->
-    <title>투두리스트</title>
-
-    <!-- Favicon -->
-    <link rel="icon" href="../static/img/core-img/favicon.ico">
-
-    <!-- Core Stylesheet -->
-    <link href="../static/css/style2.css" rel="stylesheet">
-
-    <!-- Responsive CSS -->
-    <link href="../static/css/responsive.css" rel="stylesheet">
-
-</head>
+{% load static %}
+<style>
+    
+    @font-face {
+        font-family: 'ghanachoco';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ghanachoco.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'Handon3gyeopsal600g';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/Handon3gyeopsal600g.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    .ghanachoco-font {
+        font-family: 'ghanachoco', sans-serif;
+        color: black;
+    }
+    .Handon3gyeopsal600g-font {
+        font-family: 'Handon3gyeopsal600g', sans-serif;
+        color: black;
+    }
+  
+</style>
 
 <body>
-    <!-- ***** Preloader Start ***** -->
-    <div id="preloader">
-        <div class="mosh-preloader"></div>
-    </div>
-
-    <!-- ***** Header Area Start ***** -->
-    <header class="header_area">
-        <div class="container-fluid h-100">
-            <div class="row h-100">
-                <!-- Menu Area Start -->
-                <div class="col-12 h-100">
-                    <div class="menu_area h-100">
-                        <nav class="navbar h-100 navbar-expand-lg align-items-center">
-                            <!-- Logo -->
-                            <a class="navbar-brand" href="index.html"><img src="../static/img/core-img/logo.png"
-                                    alt="logo"></a>
-
-                            <!-- Menu Area -->
-                            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                                data-target="#mosh-navbar" aria-controls="mosh-navbar" aria-expanded="false"
-                                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-
-                            <div class="collapse navbar-collapse justify-content-end" id="mosh-navbar">
-                                <ul class="navbar-nav animated" id="nav">
-                                    <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" id="moshDropdown" role="button"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
-                                        <div class="dropdown-menu" aria-labelledby="moshDropdown">
-                                            <a class="dropdown-item" href="index.html">Home</a>
-                                            <a class="dropdown-item" href="about.html">단어장</a>
-                                            <a class="dropdown-item" href="services.html">단어테스트</a>
-                                            <a class="dropdown-item" href="portfolio.html">영어듣기</a>
-                                            <a class="dropdown-item" href="blog.html">발음연습</a>
-                                            <a class="dropdown-item" href="contact.html">챗봇</a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item" href="elements.html">Elements</a>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                                </ul>
-                                <!-- Search Form Area Start -->
-                                <div class="search-form-area animated">
-                                    <form action="#" method="post">
-                                        <input type="search" name="search" id="search"
-                                            placeholder="Type keywords &amp; hit enter">
-                                        <button type="submit" class="d-none"><img
-                                                src="../static/img/core-img/search-icon.png" alt="Search"></button>
-                                    </form>
-                                </div>
-                                <!-- Search btn -->
-                                <div class="search-button">
-                                    <a href="#" id="search-btn"><img src="../static/img/core-img/search-icon.png"
-                                            alt="Search"></a>
-                                </div>
-                                <!-- Login/Register btn -->
-                                <div class="login-register-btn">
-                                    <a href="#">Login</a>
-                                    <a href="#">/ Register</a>
-                                </div>
-                            </div>
-                        </nav>
-                    </div>
-                </div>
+    <head>
+		<title>Voca_elementary</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="../static/css/main.css" />
+	</head>
+	<body class="subpage">
+        <header id="header">
+            <div class="inner">
+                <a href="index.html" class="logo">Home</a>
             </div>
-        </div>
-    </header>
-    <!-- ***** Header Area End ***** -->
-
-    <!-- ***** Breadcumb Area Start ***** -->
-    <div class="mosh-breadcumb-area" style="background-image: url(../static/img/core-img/choco_3.png);">
-        <div class="container h-100">
-            <div class="row h-100 align-items-center">
-                <div class="col-12">
-                    <div class="bradcumbContent">
-                        <h2>todolist</h2>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ***** Breadcumb Area End ***** -->
-
-    <!-- ***** About Us Area Start ***** -->
-    {% block content %}
-    <div class="col-sm-3" style="text-align:center;">
-      <a href="{% url 'todo:todolist_create' %}">
-        
-        <button type="button" class="btn btn-outline-primary btn-lg">할일 추가하기</button>
-      </a>
-    </div>
-    <div class="container">
-      <div class="column">
-        
-          <p>todolist</p>
-          <div class="card">
-            
-            </div>
-            
-            <div class="columns">
-            {% for todo in to_do_list %}
-            <div class="card column">
-              <header class="card-header">
-                <p class="card-header-title">
-                  할일 : {{ todo.name }}
-                </p>
-                <div class="card-content">
-                  <div class="content">
-                    해야 할일 : {{ todo.description|truncatechars:30 }}
-                    <br>
-                    <hr>
-                    생성 날짜 : {{ todo.date_created }}
-                    <br>
-                    데드 라인 : {{ todo.date_deadline }}
-                    <hr>
-                    남은 일수 : {{ todo.remaining_days }}
-                  </div>
-                </div>
-                <footer class="card-footer">
-                  <a href="{% url 'todo:todolist_detail' todo.id %}" class="card-footer-item"><button 
-                    type="button" class="btn btn-outline-info">더보기</button>
-                  <a href="{% url 'todo:todolist_update' todo.id %}" class="card-footer-item"><button 
-                    type="button" class="btn btn-outline-warning">수정하기</button>
-                  <a href="{% url 'todo:todolist_delete' todo.id %}" class="card-footer-item"><button 
-                    type="button" class="btn btn-outline-success">완료</button>
-                </footer>
-              </div>
-                {% endfor %}
-              </div>
-             
-            </div>
+        </header>   
+    <center>
+      {% block content %}
+      <div class="box has-text-centered">
+        <a href="{% url 'todo:todolist_create' %}">
+          <button class="button is-info is-rounded is-fullwidth">할일 추가하기</button>
+        </a>
+      </div>
+      
+      <div class="rows">
+        {% for todo in to_do_list %}
+      
+        <div class="card row">
+          <header class="card-header">
+            <p class="card-header-title">
+              할일 : {{ todo.name }}
+            </p>
+            <a href="#" class="card-header-icon" aria-label="more options">
+              <span class="icon">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+              </span>
+            </a>
+          </header>
+          <div class="card-content">
+            <div class="content">
+              해야 할일 : {{ todo.description|truncatechars:30 }}
+              <br>
+              <hr>
+              생성 날짜 : {{ todo.date_created }}
+              <br>
+              데드 라인 : {{ todo.date_deadline }}
+              <hr>
+              남은 일수 : {{ todo.remaining_days }}
             </div>
           </div>
-        
-      
-      {% endblock content %}
-    
-    <!-- ***** About Us Area End ***** -->
-
-
-
-    <!-- ***** Footer Area Start ***** -->
-    <footer class="footer-area clearfix">
-        <!-- Top Fotter Area -->
-        <div class="top-footer-area section_padding_100_0">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 col-sm-6 col-lg-3">
-                        <div class="single-footer-widget mb-100">
-                            <a href="#" class="mb-50 d-block"><img src="../static/img/core-img/logo.png" alt=""></a>
-                            <p>Etiam nec odio vestibulum est mattis effic iturut magna. Pellent esque sit amet tellus
-                                blandit. Etiam nec odio vestibul.</p>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-lg-3">
-                        <div class="single-footer-widget mb-100">
-                            <h5>Fast links</h5>
-                            <ul>
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Testimonials</a></li>
-                                <li><a href="#">Services &amp; Features</a></li>
-                                <li><a href="#">Accordions and tabs</a></li>
-                                <li><a href="#">Menu ideas</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-lg-3">
-                        <div class="single-footer-widget mb-100">
-                            <h5>Blog</h5>
-                            <div class="footer-single--blog-post">
-                                <a href="#" class="blog-post-date">
-                                    <p>23 September, 2017</p>
-                                </a>
-                                <a href="#" class="blog-post-title">
-                                    <h6>Why we love stock photos</h6>
-                                </a>
-                            </div>
-                            <div class="footer-single--blog-post">
-                                <a href="#" class="blog-post-date">
-                                    <p>22 September, 2017</p>
-                                </a>
-                                <a href="#" class="blog-post-title">
-                                    <h6>Designin on grid. A few rules. </h6>
-                                </a>
-                            </div>
-                            <div class="footer-single--blog-post">
-                                <a href="#" class="blog-post-date">
-                                    <p>20 September, 2017</p>
-                                </a>
-                                <a href="#" class="blog-post-title">
-                                    <h6>2017 World Design Congress</h6>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-6 col-lg-3">
-                        <div class="single-footer-widget mb-100">
-                            <h5>Contact Info</h5>
-                            <div class="footer-single-contact-info d-flex">
-                                <div class="contact-icon">
-                                    <img src="../static/img/core-img/map.png" alt="">
-                                </div>
-                                <p>4127/ 5B-C Mislane Road, Gibraltar, UK</p>
-                            </div>
-                            <div class="footer-single-contact-info d-flex">
-                                <div class="contact-icon">
-                                    <img src="../static/img/core-img/call.png" alt="">
-                                </div>
-                                <p>Main: 203-808-8613 <br> Office: 203-808-8648</p>
-                            </div>
-                            <div class="footer-single-contact-info d-flex">
-                                <div class="contact-icon">
-                                    <img src="../static/img/core-img/message.png" alt="">
-                                </div>
-                                <p>office@yourbusiness.com</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          <footer class="card-footer">
+            <a href="{% url 'todo:todolist_detail' todo.id %}" class="card-footer-item"><button
+                class="button is-primary is-fullwidth">더보기</button></a>
+            <a href="{% url 'todo:todolist_update' todo.id %}" class="card-footer-item"><button
+                class="button is-warning is-fullwidth">수정하기</button></a>
+            <a href="{% url 'todo:todolist_delete' todo.id %}" class="card-footer-item"><button
+                class="button is-danger is-fullwidth">완료</button></a>
+          </footer>
         </div>
-        <!-- Fotter Bottom Area -->
-        <div class="footer-bottom-area">
-            <div class="container h-100">
-                <div class="row h-100">
-                    <div class="col-12 h-100">
-                        <div class="footer-bottom-content h-100 d-md-flex justify-content-between align-items-center">
-                            <div class="copyright-text">
-                                <p>
-                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                    Copyright &copy;
-                                    <script>document.write(new Date().getFullYear());</script> All rights reserved |
-                                    This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a
-                                        href="https://colorlib.com" target="_blank">Colorlib</a>
-                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                </p>
-                            </div>
-                            <div class="footer-social-info">
-                                <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                            </div>
-                        </div>
-                    </div>
+      
+        {% endfor %}
+      
+      </div>
+      {% endblock content %}
+
+
+
+
+    </center>
+
+    <br>
+
+</body>
+    <footer id="footer">
+        <div class="inner">
+            <div class="flex">
+                <div class="copyright">
+                    &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
                 </div>
+                <ul class="icons">
+                    <li> <a href="http://cse.yu.ac.kr/main.php"><img src="{% static 'img/yu.png' %}" width="200px;"></a>
+                    </li>
+                </ul>
             </div>
         </div>
     </footer>
-    <!-- ***** Footer Area End ***** -->
 
-    <!-- jQuery-2.2.4 js -->
-    <script src="../static/js/jquery-2.2.4.min.js"></script>
-    <!-- Popper js -->
-    <script src="../static/js/popper.min.js"></script>
-    <!-- Bootstrap js -->
-    <script src="../static/js/bootstrap.min.js"></script>
-    <!-- All Plugins js -->
-    <script src="../static/js/plugins.js"></script>
-    <!-- Active js -->
-    <script src="../static/js/active.js"></script>
-</body>
-
-</html>
+    <!-- Scripts -->
+    <script src="../static/js/jquery.min.js"></script>
+    <script src="../static/js/skel.min.js"></script>
+    <script src="../static/js/util.js"></script>
+    <script src="../static/js/main.js"></script>
