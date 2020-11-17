@@ -160,7 +160,7 @@ def user_profile(request):
                 user.set_password(new_password)
                 user.save()
                 auth.login(request, user)
-                return render(request, 'index.html')
+                return render(request, 'a.html')
             else:
                 context.update({'error': "새로운 비밀번호를 다시 확인해주세요."})
     else:
