@@ -25,7 +25,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', app.views.index, name='a'),
+    path('', app.views.a, name='a'),
     path('voca/', app.views.voca, name='voca'),
     path('signup/', accounts.views.signup, name='signup'),
     path('login/', accounts.views.login, name='login'),
