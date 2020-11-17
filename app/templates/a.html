@@ -25,10 +25,37 @@
         font-family: 'Handon3gyeopsal600g', sans-serif;
         color: black;
     }
+    .half-highlight {
+  background: linear-gradient(180deg,rgba(255,255,255,0) 50%, #FFD0AE 50%);
+}
+    .spread-underline {
+  color: #333;
+  text-decoration: none;
+  display: inline-block;
+  padding: 15px 0;
+  position: relative;
+}
+.spread-underline:after {    
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: #ffb000;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+.spread-underline:hover:after { 
+  width: 100%; 
+  left: 0; 
+}
+    
 </style>
 
 <head>
-    <title>Theory by TEMPLATED</title>
+    <title>머핀의 법칙 - AI 기반 영어 교육</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -40,80 +67,91 @@
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <style type="text/css"> 
+a { text-decoration:none } 
+</style> 
 
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: fixed; top: 0;">
-
-
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a href="{%url 'a'%}">Home</a>
-            </li>
-            <li class="nav-item">
-                <a href="{%url 'voca_cate'%}">단어장</a>
-            </li>
-            <li class="nav-item">
-                <a href="{%url 'voca_test'%}">단어테스트</a>
-
-            </li>
-            <li class="nav-item">
-                <a href="{%url 'listen'%}">영어듣기</a>
-
-            </li>
-            <li class="nav-item">
-                <a href="{%url 'pronounce'%}">발음 연습</a>
-
-            </li>
-            <li class="nav-item">
-                <a href="{%url 'write'%}">손글씨 쓰기</a>
-
-            </li>
-            <li class="nav-item">
-                <a href="{%url 'chatbot'%}">챗봇</a>
-
-            </li>
-            <li class="nav-item">
-                <a href="{%url 'todo:todolist'%}">투두리스트</a>
-            </li>
-            <li class="nav-item">
-                <form>
-                    {%if user.is_authenticated%}
-                    <span style="color: whitesmoke;">{{user.profile.nickname}}님</span>ㅤ
-                    <a href="{%url 'user_profile'%}">내정보 </a>
-                    <a href="{%url 'ranking'%}">ㅤ현재 순위ㅤ</a>
-                    <form action="{%url 'logout'%}" method="POST" style="float: right;">
-                        {%csrf_token%}
-                        <input type="submit" value="로그아웃" style="font-size: 0.6rem;">
-                    </form>
-                    {%else%}
-                    <a href="{%url 'signup'%}">회원가입</a>
-                    <a href="{%url 'login'%}">로그인</a>
-                    {%endif%}
-                    <!-- <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+<div class="fixed-top Handon3gyeopsal600g-font">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4" style="color: white;">
+    {%if user.is_authenticated%}
+      <h5 class="text-white h3" >{{user.profile.nickname}}님 반갑습니다!</h5>
+      <span class="text-muted">
+      <form>ㅤ
+                <a href="{%url 'user_profile'%}" style="color: white;">내정보 </a>
+                <a href="{%url 'ranking'%}" style="color: white;">ㅤㅤ현재 순위ㅤ</a>
+                {%csrf_token%}
+                <form action="{%url 'logout'%}" method="POST" >
+                    <input type="submit" value="로그아웃" style="font-size: 0.8rem;">
                 </form>
+                {%else%}
+                <a href="{%url 'signup'%}">회원가입</a>
+                <a href="{%url 'login'%}">로그인</a>
+                {%endif%}
+                </form>
+                </span>
+    </div>
+  </div>
+  <nav class="navbar navbar-dark bg-light" ">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="nav-link spread-underline" href="{%url 'voca_cate'%}" style="color:black; font-size:1.1rem;">단어장</a>
+    <a class="nav-link spread-underline" href="{%url 'voca_test'%}" style="color:black; font-size:1.1rem;">단어테스트</a>
+    <a class="nav-link spread-underline" href="{%url 'listen'%}" style="color:black; font-size:1.1rem;">영어듣기</a>
+    <a class="nav-link spread-underline" href="{%url 'pronounce'%}" style="color:black; font-size:1.1rem;">발음연습</a>
+    <a class="nav-link spread-underline" href="{%url 'chatbot'%}" style="color:black; font-size:1.1rem;">챗봇</a>
+    <a class="nav-link spread-underline" href="{%url 'write'%}" style="color:black; font-size:1.1rem;">손글씨 쓰기</a>
+    <a class="nav-link spread-underline" href="{%url 'todo:todolist'%}" style="color:black; font-size:1.1rem;">투두리스트</a>
+  </nav>
+</div>
+    <!-- <nav class="navbar navbar-expand-md navbar-dark bg-light Handon3gyeopsal600g-font fixed-top" >
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{%url 'voca_cate'%}" style="color:black;">단어장</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{%url 'voca_test'%}" style="color:black;">단어테스트</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{%url 'listen'%}" style="color:black;">영어듣기</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{%url 'pronounce'%}" style="color:black;">발음연습</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{%url 'chatbot'%}" style="color:black;">챗봇</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{%url 'write'%}" style="color:black;">손글씨 쓰기</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{%url 'todo:todolist'%}" style="color:black;">투두리스트</a>
             </li>
         </ul>
-
-    </nav>
-    <form class="form-inline mt-2 mt-md-0">
-        {%if user.is_authenticated%}
-        <span style="color: whitesmoke;">{{user.profile.nickname}}님</span>ㅤ
-        <a href="{%url 'user_profile'%}">내정보 </a>
-        <a href="{%url 'ranking'%}">ㅤ현재 순위ㅤ</a>
-        <form action="{%url 'logout'%}" method="POST" style="float: right;">
-            {%csrf_token%}
-            <input type="submit" value="로그아웃">
-        </form>
-        {%else%}
-        <a class="btn btn-sm btn-outline-secondary" href="{%url 'signup'%}">회원가입</a>
-        <a class="btn btn-sm btn-outline-secondary" href="{%url 'login'%}">로그인</a>
-        {%endif%}
-        <!-- <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
-    </form>
+    </div>
+    <div class="mx-auto order-0">
+        <a class="navbar-brand mx-auto ghanachoco-font" href="{%url 'a'%}" ><img src="{% static 'img/logo.png' %}" width="50"/></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <p class="nav-link" style="color:black;"></p>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" style="color:black;">Link</a>
+            </li>
+        </ul>
+    </div>
+</nav> -->
 
     <!-- Banner -->
     <section id="banner">
