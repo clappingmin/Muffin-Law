@@ -1,36 +1,117 @@
 {% load static %}
+<!DOCTYPE HTML>
+<!--
+	Theory by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+
+<style>
+    @font-face {
+        font-family: 'ghanachoco';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ghanachoco.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Handon3gyeopsal600g';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/Handon3gyeopsal600g.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    .ghanachoco-font {
+        font-family: 'ghanachoco', sans-serif;
+        color: black;
+    }
+
+    .Handon3gyeopsal600g-font {
+        font-family: 'Handon3gyeopsal600g', sans-serif;
+        color: black;
+    }
+</style>
 
 <html>
-<head>
-    <title>Video Detail</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-</head>
-<body>
-<div class="content container">
-    <header class="page-header">
-        <h1>Video Detail</h1>
-    </header>
-    <div class="row">
-        <div class="col-md-16">
-            <h4>{{ video.title }}</h4>
-            <div id="player" style="width: 100%; height: 80%;"></div>
+	<head>
+		<title>Video List</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="/static/css/main.css" />
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="index.html" class="logo">Home</a>
+					<nav id="nav">
+						<a href="index.html">Home</a>
+						<a href="generic.html">Generic</a>
+						<a href="elements.html">Elements</a>
+					</nav>
+					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+				</div>
+			</header>
+
+		<!-- Three -->
+			<section id="three" class="wrapper">
+                <center>
+                <div class="content container">
+                    <header class="page-header" style="overflow: auto;">
+                        <center><h4 class="Handon3gyeopsal600g-font" style="display: inline; font-size: 3rem">{{ video.title }}</h4></center>
+                        <!-- <a class="btn btn-default" href="/listen/new" style="float: right;">New Video</a> -->
+                    </header>
+                    <div class="row">
+                        <div class="col-md-16">
+                            <!-- <h4 class="ghanachoco-font">{{ video.title }}</h4> -->
+                            <div id="player" style="width: 1110px; height: 600px;"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </center>
+			</section>
+
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <div class="flex">
+                <div class="copyright">
+                    &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a
+                        href="https://unsplash.com">Unsplash</a>.
+                </div>
+                <ul class="icons">
+                    <li> <a href="http://cse.yu.ac.kr/main.php"><img src="{% static 'img/yu.png' %}" width="200px;"></a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</div>
-</body>
-<script>
-    var tag = document.createElement('script');
+    </footer>
 
-    tag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+		<!-- Scripts -->
+			<script src="/static/js/jquery.min.js"></script>
+			<script src="/static/js/skel.min.js"></script>
+			<script src="/static/js/util.js"></script>
+			<script src="/static/js/main.js"></script>
 
-    var player;
-    function onYouTubeIframeAPIReady() {
-        player = new YT.Player('player', {
-            videoId: '{{ video.video_key }}'
-        });
-    }
-</script>
+    </body>
+    <script>
+        var tag = document.createElement('script');
+    
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                videoId: '{{ video.video_key }}'
+            });
+        }
+    </script>
 </html>
