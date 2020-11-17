@@ -40,6 +40,7 @@ urlpatterns = [
     path('listen/', include('video.urls')),
     path('write/', app.views.write, name='write'),
     path('pronounce/', app.views.pronounce, name='pronounce'),
+    path('evaluate/',app.views.evaluate, name='evaluate'),
     path('voca_cate/', app.views.voca_cate, name='voca_cate'),
     path('user_profile/', app.views.user_profile, name='user_profile'),
     path('ranking/', app.views.ranking, name='ranking'),
