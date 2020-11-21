@@ -25,7 +25,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', app.views.index, name='index'),
+    path('', app.views.a, name='a'),
     path('voca/', app.views.voca, name='voca'),
     path('signup/', accounts.views.signup, name='signup'),
     path('login/', accounts.views.login, name='login'),
@@ -40,11 +40,11 @@ urlpatterns = [
     path('listen/', include('video.urls')),
     path('write/', app.views.write, name='write'),
     path('pronounce/', app.views.pronounce, name='pronounce'),
+    path('evaluate/',app.views.evaluate, name='evaluate'),
     path('voca_cate/', app.views.voca_cate, name='voca_cate'),
     path('user_profile/', app.views.user_profile, name='user_profile'),
     path('ranking/', app.views.ranking, name='ranking'),
     path('de/', app.views.de, name='de'),
-    path('a/', app.views.a, name='a'),
     path('chatbot/', home, name='chatbot'),
     path('get-response/', get_response),
     path('todo',include('todo.urls')),

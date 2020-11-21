@@ -19,6 +19,15 @@ try:
 except ImportError:
     import json
 
+import urllib3
+import json
+import base64
+
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
+
+
+
 
 def index(request):
     todays = Today.objects.order_by('?')[0]
@@ -140,9 +149,54 @@ def write(request):
     return render(request, 'write.html')
 
 
-def pronounce(request):
 
+def pronounce(request):
     return render(request, 'pronounce.html')
+
+@csrf_exempt
+def evaluate(request):
+    audio_data = request.POST.get('audio', '')#audio_data = request.FILES['audio']
+    #-*- coding:utf-8 -*-
+    openApiURL = "http://aiopen.etri.re.kr:8000/WiseASR/Pronunciation"
+    accessKey = "ada89ba0-ef6c-4136-8be7-7ea765c4f7ce"
+    #audioFilePath = "AUDIO_FILE_PATH"
+    languageCode = "english"
+    script = "PRONUNCIATION_SCRIPT"
+
+    #file = open(audioFilePath, "r")
+    #audioContents = base64.b64encode(file.read())
+    #file.close()
+
+    #audioContents = audio_data.read()
+    audioContents = audio_data.encode("UTF-8")
+    audio_content = base64.b64decode(audioContents).decode('utf8')
+
+    requestJson = {
+        "access_key": accessKey,
+        "argument": {
+            "language_code": languageCode,
+            "script": script,
+            "audio": audio_content
+        }
+    }
+
+    http = urllib3.PoolManager()
+    response = http.request(
+        "POST",
+        openApiURL,
+        headers={"Content-Type": "application/json; charset=UTF-8"},
+        body=json.dumps(requestJson)
+    )
+
+    print("[responseCode] " + str(response.status))
+    print("[responBody]")
+    print(response.data)
+
+    responseString = "잘 전달되었음\n점수:" + str(response.data)
+
+    return HttpResponse(responseString)
+
+
 
 
 def user_profile(request):
@@ -160,7 +214,7 @@ def user_profile(request):
                 user.set_password(new_password)
                 user.save()
                 auth.login(request, user)
-                return render(request, 'index.html')
+                return render(request, 'a.html')
             else:
                 context.update({'error': "새로운 비밀번호를 다시 확인해주세요."})
     else:

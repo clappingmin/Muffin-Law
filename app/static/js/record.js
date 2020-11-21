@@ -1,3 +1,21 @@
+/*//csrf
+function getCookie(name) {
+  var cookieValue = null;
+  if (document.cookie && document.cookie !== '') {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+          var cookie = jQuery.trim(cookies[i]);
+          // Does this cookie string begin with the name we want?
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+              cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+              break;
+          }
+      }
+  }
+  return cookieValue;
+}
+var csrftoken = getCookie('csrftoken');*/
+
 // set up basic variables for app
 
 const record = document.querySelector('.record');
@@ -94,35 +112,26 @@ if (navigator.mediaDevices.getUserMedia) {
       }
 
       evaluateButton.onclick = function(e) {
-        /*var fs = require('fs');
-        var openApiURL = 'http://aiopen.etri.re.kr:8000/WiseASR/Pronunciation';
-        var accessKey = 'ada89ba0-ef6c-4136-8be7-7ea765c4f7ce';
-        var languageCode = 'english';
-        var script = 'PRONUNCIATION_SCRIPT';
-        var audioFilePath = audioURL;
-        var audioData;
-
-        var audioData = fs.readFileSync(audioFilePath);
-
-        var requestJson = {
-          'access_key': access_key,
-          'argument': {
-            'language_code': languageCode,
-            'script': script,
-            'audio': audioData.toString('base64')
-          }
-        };
-
-        var request = require('request');
-        var options = {
-          url: openApiURL,
-          body: JSON.stringify(requestJson),
-          headers: {'Content-Type':'application/json; charset=UTF-8'}
-        };
-        request.post(options, function (error, response, body) {
-          console.log('responseCode = ' + response.statusCode);
-          console.log('responseBody = ' + body);
-        });*/
+       
+        console.log("start sending binary data...");
+        var form = new FormData();
+        form.append('audio', blob,'pronounce');
+        
+        $.ajax({
+            data: {csrfmiddlewaretoken: '{{ csrf_token }}'},
+            url: 'http://localhost:8000/evaluate/',
+            type: 'POST',
+            data: form,
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                console.log('response' + JSON.stringify(data));
+            },
+            error: function () {
+              // handle error case here
+            }
+        });
+        
         
       }
 
