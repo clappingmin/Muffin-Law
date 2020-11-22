@@ -1,4 +1,5 @@
 {% load static %}
+<!DOCTYPE html>
 <html>
 
 <style>
@@ -58,15 +59,17 @@
 </style>
 
 <head>
-	<title>챗봇</title>
+	<title>머핀의 법칙 - AI 기반 영어 교육</title>
 
 	<meta charset="utf-8" />
+<<<<<<< HEAD
 	<link href="../static/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
+=======
+>>>>>>> 28eff0944b31e264a3654b484ecfdca2133c6599
 
-	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-	<link rel="stylesheet" href="{% static 'css/main.css' %}">
+	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/style.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
 		integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
@@ -87,9 +90,7 @@
 		<div class="collapse" id="navbarToggleExternalContent">
 			<div class="bg-dark p-4" style="color: white;">
 				{%if user.is_authenticated%}
-				<a href="{%url 'a'%}">
-					<h5 class="text-white h3">{{user.profile.nickname}}님 반갑습니다!</h5>
-				</a>
+				<h5 class="text-white h3">{{user.profile.nickname}}님 반갑습니다!</h5>
 				<span class="text-muted">
 					<form>ㅤ
 						<a href="{%url 'user_profile'%}" style="color: white;">내정보 </a>
@@ -127,9 +128,7 @@
 		</nav>
 	</div>
 
-	<div class="fixed-top Handon3gyeopsal600g-font">
-		{% block content %}{% endblock %}</div>
-
+	{% block content %}{% endblock %}
 </body>
 
 </html>

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import json
 from django.views.decorators.csrf import csrf_exempt
+from chatterbot.trainers import ChatterBotCorpusTrainer
 
 from chatterbot import ChatBot
 
@@ -10,9 +11,9 @@ chatbot = ChatBot(
     trainer='chatterbot.trainers.ChatterBotCorpusTrainer'
 	
 )
-# chatbot.train(
-#     "chatterbot.corpus.english"
-# )
+chatbot.train(
+    "chatterbot.corpus.english"
+)
 
 # Train based on the english corpus
 
