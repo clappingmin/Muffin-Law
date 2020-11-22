@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.contrib import auth
+from django.shortcuts import render_to_response
 
 
 def signup(request):
@@ -30,5 +31,5 @@ def login(request):
 
 
 def logout(request):
-    auth.logout(request)
-    return render(request, 'a.html')
+    auth_logout(request)
+    return render_to_response(request, 'a.html')

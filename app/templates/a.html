@@ -91,13 +91,13 @@
                     <form>ㅤ
                         <a href="{%url 'user_profile'%}" style="color: white;">내정보 </a>
                         <a href="{%url 'ranking'%}" style="color: white;">ㅤㅤ현재 순위ㅤ</a>
-                        {%csrf_token%}
                         <form action="{%url 'logout'%}" method="POST">
+                            {%csrf_token%}
                             <input type="submit" value="로그아웃" style="font-size: 0.8rem;">
                         </form>
                         {%else%}
-                        <a href="{%url 'signup'%}">회원가입</a>
-                        <a href="{%url 'login'%}">로그인</a>
+                        <a href="{%url 'signup'%}" style="color: white;">회원가입ㅤ</a>
+                        <a href="{%url 'login'%}" style="color: white;">로그인</a>
                         {%endif%}
                     </form>
                 </span>
