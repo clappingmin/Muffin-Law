@@ -91,14 +91,17 @@
                     <form>ㅤ
                         <a href="{%url 'user_profile'%}" style="color: white;">내정보 </a>
                         <a href="{%url 'ranking'%}" style="color: white;">ㅤㅤ현재 순위ㅤ</a>
+                        <!-- <form action="{%url 'logout'%}" method="POST">-->
                         {%csrf_token%}
-                        <form action="{%url 'logout'%}" method="POST">
-                            <input type="submit" value="로그아웃" style="font-size: 0.8rem;">
-                        </form>
-                        {%else%}
-                        <a href="{%url 'signup'%}">회원가입</a>
-                        <a href="{%url 'login'%}">로그인</a>
-                        {%endif%}
+                        <button type="button" class="btn btn-primary btn-sm"><a href="{%url 'logout'%}"
+                                style="color: white;">로그아웃하기</a>
+                        </button>
+                        <!-- <input type="submit" value="로그아웃" style="font-size: 0.8rem;"> -->
+                    </form>
+                    {%else%}
+                    <a href="{%url 'signup'%}" style="color: white;">회원가입ㅤ</a>
+                    <a href="{%url 'login'%}" style="color: white;">로그인</a>
+                    {%endif%}
                     </form>
                 </span>
             </div>
@@ -210,7 +213,7 @@
                 </div>
                 <div class="box person">
                     <div class="image round">
-                        <img src="" alt="Person 2" />
+                        <img src="{% static 'img/faceee.jpg' %}" alt="Person 2" />
                     </div>
                     <h3>전상현</h3>
                     <p>21411895 <br>조원</p>
