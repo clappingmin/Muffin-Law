@@ -196,9 +196,6 @@ def evaluate(request):
 
     return HttpResponse(responseString)
 
-
-
-
 def user_profile(request):
     user = request.user
     rank = Profile.objects.all().order_by('-user_test_point')

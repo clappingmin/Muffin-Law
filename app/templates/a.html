@@ -83,8 +83,10 @@
         <div class="collapse" id="navbarToggleExternalContent">
             <div class="bg-dark p-4" style="color: white;">
                 {%if user.is_authenticated%}
-                <h5 class="text-white h3">{{user.profile.nickname}}님 반갑습니다!</h5>
-                <span class="text-muted">
+                <a href="{%url 'a'%}">
+                    <h5 class="text-white h3">{{user.profile.nickname}}님 반갑습니다!</h5>
+                </a>
+                <span class=" text-muted">
                     <form>ㅤ
                         <a href="{%url 'user_profile'%}" style="color: white;">내정보 </a>
                         <a href="{%url 'ranking'%}" style="color: white;">ㅤㅤ현재 순위ㅤ</a>
