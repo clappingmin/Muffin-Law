@@ -92,9 +92,9 @@
                         <a href="{%url 'user_profile'%}" style="color: white;">내정보 </a>
                         <a href="{%url 'ranking'%}" style="color: white;">ㅤㅤ현재 순위ㅤ</a>
                         {%csrf_token%}
-                        <button type="button" class="btn btn-primary btn-sm"><a href="{%url 'logout'%}"
-                                style="color: white;">로그아웃하기</a>
-                        </button>
+                        <form action="{%url 'logout'%}" method="POST">
+                            <input type="submit" value="로그아웃" style="font-size: 0.8rem;">
+                        </form>
                         {%else%}
                         <a href="{%url 'signup'%}">회원가입</a>
                         <a href="{%url 'login'%}">로그인</a>
@@ -133,7 +133,7 @@
                     <h1 class="ghanachoco-font" style="display: inline; font-size: 3.3rem">Video List</h1>
                     <h3 class="Handon3gyeopsal600g-font" style="color: gray; font-size: 1.0rem;">유튜브 영상자료로 영어듣기</h3>
                 </center>
-                <a class="btn btn-default" href="/listen/new" style="float: right;">New Video</a>
+                <!-- <a class="btn btn-default" href="/listen/new" style="float: right;">New Video</a> -->
             </header>
             <div class="row">
                 <div class="col-md-12">
