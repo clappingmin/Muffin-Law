@@ -9,7 +9,6 @@ from django.shortcuts import render
 from django.db.models import F
 from django.contrib.auth.hashers import check_password
 from django.contrib import auth
-from django.shortcuts import render_to_response
 
 import json
 from django.views.decorators.csrf import csrf_exempt
