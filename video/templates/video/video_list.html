@@ -92,9 +92,9 @@
                         <a href="{%url 'user_profile'%}" style="color: white;">내정보 </a>
                         <a href="{%url 'ranking'%}" style="color: white;">ㅤㅤ현재 순위ㅤ</a>
                         {%csrf_token%}
-                        <form action="{%url 'logout'%}" method="POST">
-                            <input type="submit" value="로그아웃" style="font-size: 0.8rem;">
-                        </form>
+                        <button type="button" class="btn btn-primary btn-sm"><a href="{%url 'logout'%}"
+                                style="color: white;">로그아웃하기</a>
+                        </button>
                         {%else%}
                         <a href="{%url 'signup'%}">회원가입</a>
                         <a href="{%url 'login'%}">로그인</a>

@@ -62,27 +62,26 @@
 	<title>머핀의 법칙 - AI 기반 영어 교육</title>
 
 	<meta charset="utf-8" />
-<<<<<<< HEAD
-	<link href="../static/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-=======
->>>>>>> 28eff0944b31e264a3654b484ecfdca2133c6599
+	<<<<<<< HEAD <link href="../static/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		=======
+		>>>>>>> 28eff0944b31e264a3654b484ecfdca2133c6599
 
-	<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="/static/css/style.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
-		integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="/static/css/style.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+			integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-		crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-		crossorigin="anonymous"></script>
-	<script type="text/javascript" src="/static/js/dev-vue.js"></script>
-	{% block css %} {% endblock %}
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+			crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+			crossorigin="anonymous"></script>
+		<script type="text/javascript" src="/static/js/dev-vue.js"></script>
+		{% block css %} {% endblock %}
 
-	{% block js %}{% endblock %}
+		{% block js %}{% endblock %}
 </head>
 
 <body>
@@ -96,9 +95,9 @@
 						<a href="{%url 'user_profile'%}" style="color: white;">내정보 </a>
 						<a href="{%url 'ranking'%}" style="color: white;">ㅤㅤ현재 순위ㅤ</a>
 						{%csrf_token%}
-						<form action="{%url 'logout'%}" method="POST">
-							<input type="submit" value="로그아웃" style="font-size: 0.8rem;">
-						</form>
+						<button type="button" class="btn btn-primary btn-sm"><a href="{%url 'logout'%}"
+								style="color: white;">로그아웃하기</a>
+						</button>
 						{%else%}
 						<a href="{%url 'signup'%}">회원가입</a>
 						<a href="{%url 'login'%}">로그인</a>
