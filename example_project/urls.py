@@ -47,7 +47,8 @@ urlpatterns = [
     path('de/', app.views.de, name='de'),
     path('chatbot/', home, name='chatbot'),
     path('get-response/', get_response),
-    path('todo',include('todo.urls'))
+    path('todo',include('todo.urls')),
+    
 ]
 if settings.DEBUG == True:
     urlpatterns += static(settings.MEDIA_URL,
