@@ -26,39 +26,43 @@
         color: black;
     }
 
-       .half-highlight {
-  background: linear-gradient(180deg,rgba(255,255,255,0) 50%, #FFD0AE 50%);
-}
+    .half-highlight {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0) 50%, #FFD0AE 50%);
+    }
+
     .spread-underline {
-  color: #333;
-  text-decoration: none;
-  display: inline-block;
-  padding: 15px 0;
-  position: relative;
-}
-.spread-underline:after {    
-  background: none repeat scroll 0 0 transparent;
-  bottom: 0;
-  content: "";
-  display: block;
-  height: 2px;
-  left: 50%;
-  position: absolute;
-  background: #ffb000;
-  transition: width 0.3s ease 0s, left 0.3s ease 0s;
-  width: 0;
-}
-.spread-underline:hover:after { 
-  width: 100%; 
-  left: 0; 
-}
+        color: #333;
+        text-decoration: none;
+        display: inline-block;
+        padding: 15px 0;
+        position: relative;
+    }
+
+    .spread-underline:after {
+        background: none repeat scroll 0 0 transparent;
+        bottom: 0;
+        content: "";
+        display: block;
+        height: 2px;
+        left: 50%;
+        position: absolute;
+        background: #ffb000;
+        transition: width 0.3s ease 0s, left 0.3s ease 0s;
+        width: 0;
+    }
+
+    .spread-underline:hover:after {
+        width: 100%;
+        left: 0;
+    }
 </style>
 
-    <head>
-      <title>로그인</title>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+<head>
+    <title>로그인</title>
+    <meta charset="utf-8" />
+    <link href="../static/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -66,37 +70,40 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
-      <link rel="stylesheet" href="{% static 'css/main.css' %}">
-          <style type="text/css"> 
-a { text-decoration:none } 
-</style> 
-   </head>
-   
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <style type="text/css">
+        a {
+            text-decoration: none
+        }
+    </style>
+</head>
+
 <body>
     <center>
         <br><br><br><br>
         {% block content %}
         <div class="Handon3gyeopsal600g-font" style="font-size:2.5rem; color:black;">로그인</div>
-    <form method="POST" action="{% url 'login'%}">
-    <br>
-    {% csrf_token %}
-    <div class="Handon3gyeopsal600g-font" style="font-size:1.1rem; color:black;">아이디</div>
-    <input name="username" type="text" value="" style="width:300px;height:35px;font-size:30px;">
-    <br>
-    <div class="Handon3gyeopsal600g-font" style="font-size:1.1rem; color:black;">비밀번호</div>
-    <input name="password" type="password" value="0000" style="width:300px;height:35px;font-size:30px;">
-    <br>
-    <br>
-    <input type="submit" value="Login">
-</form>
-{% endblock %}
+        <form method="POST" action="{% url 'login'%}">
+            <br>
+            {% csrf_token %}
+            <div class="Handon3gyeopsal600g-font" style="font-size:1.1rem; color:black;">아이디</div>
+            <input name="username" type="text" value="" style="width:300px;height:35px;font-size:30px;">
+            <br>
+            <div class="Handon3gyeopsal600g-font" style="font-size:1.1rem; color:black;">비밀번호</div>
+            <input name="password" type="password" value="0000" style="width:300px;height:35px;font-size:30px;">
+            <br>
+            <br>
+            <input type="submit" value="Login">
+        </form>
+        {% endblock %}
     </center>
 
     <footer id="footer">
         <div class="inner">
             <div class="flex">
                 <div class="copyright">
-                    &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Unsplash</a>.
+                    &copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a
+                        href="https://unsplash.com">Unsplash</a>.
                 </div>
                 <ul class="icons">
                     <li> <a href="http://cse.yu.ac.kr/main.php"><img src="{% static 'img/yu.png' %}" width="200px;"></a>
@@ -106,10 +113,11 @@ a { text-decoration:none }
         </div>
     </footer>
 
-<!-- Scripts -->
+    <!-- Scripts -->
     <script src="../static/js/jquery.min.js"></script>
     <script src="../static/js/skel.min.js"></script>
     <script src="../static/js/util.js"></script>
     <script src="../static/js/main.js"></script>
 </body>
+
 </html>

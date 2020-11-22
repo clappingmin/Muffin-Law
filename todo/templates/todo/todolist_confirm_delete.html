@@ -1,32 +1,32 @@
 {% load static %}
 
 <link rel="stylesheet" type="text/css" href="{% static 'bulma/css/style.css' %}">
-
+<link href="../static/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
 <div class="field is-grouped is-grouped-centered">
-    <p>{{ object }}</p><br><br>
-    
+  <p>{{ object }}</p><br><br>
+
 </div>
 
 <div class="field is-grouped is-grouped-centered">
-    
-    <form action="" method="POST">
-    
+
+  <form action="" method="POST">
+
     {{ form }}
     {% csrf_token %}
 
     <p class="control">
-        
+
       <input type="submit" class="button is-danger" value="완료">
       <a class="button is-light" href="{% url 'todo:todolist' %}">
         취소
       </a>
     </p>
-    </form>
+  </form>
 </div>
 
 <div class="field is-grouped is-grouped-centered">
-    
-    <p class="control">
-        해당 투두리스트를 완료 하시겠습니까?
-      </p>
-  </div>
+
+  <p class="control">
+    해당 투두리스트를 완료 하시겠습니까?
+  </p>
+</div>
