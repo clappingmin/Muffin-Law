@@ -12,7 +12,7 @@ chatbot = ChatBot(
 	
 )
 chatbot.train(
-    "chatterbot.corpus.english"
+    "chatterbot.corpus.english.greetings"
 )
 
 # Train based on the english corpus
