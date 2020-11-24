@@ -134,7 +134,7 @@
 
       <a href="{% url 'todo:todolist_create' %}">
         <br>
-        <button class="button is-info is-rounded is-fullwidth">할일 추가하기</button>
+        <button class="button is-info is-rounded is-fullwidth Handon3gyeopsal600g-font">할일 추가하기</button>
         <br>
         <br>
       </a>
@@ -146,15 +146,15 @@
         <div class="card row">
           <!-- <header class="card-header">  -->
           <!-- <div class="card-header-title"> -->
-          <div class="card-header">
+          <div class="card-header Handon3gyeopsal600g-font">
             ● 할일 : {{ todo.name }}
           </div>
           <!-- </div>   -->
 
           <!-- </header>  -->
 
-          <div class="card-content">
-            <div class="content">
+          <div class="card-content Handon3gyeopsal600g-font">
+            <div class="content Handon3gyeopsal600g-font">
               <br>
               해야 할일 : {{ todo.description|truncatechars:30 }}
               <br>
@@ -170,11 +170,11 @@
           </div>
           <footer class="card-footer">
             <a href="{% url 'todo:todolist_detail' todo.id %}" class="card-footer-item"><button
-                class="button is-primary is-fullwidth">더보기</button></a>
+                class="button is-primary is-fullwidth Handon3gyeopsal600g-font">더보기</button></a>
             <a href="{% url 'todo:todolist_update' todo.id %}" class="card-footer-item"><button
-                class="button is-warning is-fullwidth">수정하기</button></a>
+                class="button is-warning is-fullwidth Handon3gyeopsal600g-font">수정하기</button></a>
             <a href="{% url 'todo:todolist_delete' todo.id %}" class="card-footer-item"><button
-                class="button is-danger is-fullwidth">완료</button></a>
+                class="button is-danger is-fullwidth Handon3gyeopsal600g-font">완료</button></a>
           </footer>
 
         </div>
