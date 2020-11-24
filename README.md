@@ -10,8 +10,9 @@
 
 -----------------------------------
 
-
- pip install django <br/> 
- pip install django-bulma <br/> 
- pip install django-cors-headers <br/> 
- pip install -r req.text 
+```
+pip install django <br/> 
+pip install django-bulma <br/> 
+pip install django-cors-headers <br/> 
+pip install -r req.text
+ ```
