@@ -11,10 +11,10 @@ chatbot = ChatBot(
     trainer='chatterbot.trainers.ChatterBotCorpusTrainer'
 	
 )
-chatbot.train(
-    "chatterbot.corpus.english.greetings",
-	"chatterbot.corpus.english.conversations"
-)
+#chatbot.train(
+#    "chatterbot.corpus.english.greetings",
+#	"chatterbot.corpus.english.conversations"
+#)
 
 # Train based on the english corpus
 
