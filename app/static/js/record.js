@@ -17,6 +17,7 @@ function getCookie(name) {
 var csrftoken = getCookie('csrftoken');*/
 
 // set up basic variables for app
+var recorder; // globally accessible
 
 const record = document.querySelector('.record');
 const stop = document.querySelector('.stop');
@@ -26,7 +27,7 @@ const mainSection = document.querySelector('.main-controls');
 
 // disable stop button while not recording
 
-stop.disabled = true;
+//stop.disabled = true;
 
 // visualiser setup - create web audio api context and canvas
 
@@ -42,13 +43,31 @@ if (navigator.mediaDevices.getUserMedia) {
   let chunks = [];
 
   let onSuccess = function(stream) {
-    const mediaRecorder = new MediaRecorder(stream);
+    //const mediaRecorder = new MediaRecorder(stream);
 
     visualize(stream);
 
     record.onclick = function() {
-      mediaRecorder.start();
-      console.log(mediaRecorder.state);
+      this.disabled = true;
+      captureMicrophone(function(microphone) {
+        audio.srcObject = microphone;
+
+        recorder = RecordRTC(microphone, {
+            type: 'audio',
+            recorderType: StereoAudioRecorder,
+            numberOfAudioChannels:1,
+            desiredSampRate: 16000
+        });
+
+        recorder.startRecording();
+
+        // release microphone on stopRecording
+        recorder.microphone = microphone;
+        stop.disabled = false;
+
+    });
+      //mediaRecorder.start();
+      console.log(recorder.state);
       console.log("recorder started");
       record.style.background = "red";
 
@@ -57,8 +76,8 @@ if (navigator.mediaDevices.getUserMedia) {
     }
 
     stop.onclick = function() {
-      mediaRecorder.stop();
-      console.log(mediaRecorder.state);
+      recorder.stopRecording(stopRecordingCallback);
+      console.log(recorder.state);
       console.log("recorder stopped");
       record.style.background = "";
       record.style.color = "";
@@ -68,17 +87,21 @@ if (navigator.mediaDevices.getUserMedia) {
       record.disabled = false;
     }
 
-    mediaRecorder.onstop = function(e) {
-      console.log("data available after MediaRecorder.stop() called.");
+    function stopRecordingCallback() {
+      //below is original record.jg scripts
+      console.log("data available after recorder.stop() called.");
 
       const clipName = prompt('Enter a name for your sound clip?','My unnamed clip');
 
       const clipContainer = document.createElement('article');
       const clipLabel = document.createElement('p');
-      const audio = document.createElement('audio');
+      //const audio = document.createElement('audio');
+      const audio = document.querySelector('audio');
       const deleteButton = document.createElement('button');
       const evaluateButton = document.createElement('button');
       const evaluateResult = document.createElement('p');
+
+      
 
       clipContainer.classList.add('clip');
       audio.setAttribute('controls', '');
@@ -100,10 +123,19 @@ if (navigator.mediaDevices.getUserMedia) {
       soundClips.appendChild(clipContainer);
 
       audio.controls = true;
-      const blob = new Blob(chunks, { 'type' : 'audio/ogg; codecs=opus' });
+      //const blob = new Blob(chunks, { 'type' : 'audio/ogg; codecs=opus' });
       chunks = [];
-      const audioURL = window.URL.createObjectURL(blob);
-      audio.src = audioURL;
+      //const audioURL = window.URL.createObjectURL(blob);
+      //audio.src = audioURL;
+
+      //recordRTC
+      audio.srcObject = null;
+      var blob = recorder.getBlob();
+      audio.src = URL.createObjectURL(blob);
+
+      recorder.microphone.stop();
+      //recordRTC
+
       console.log("recorder stopped");
 
       deleteButton.onclick = function(e) {
@@ -115,7 +147,7 @@ if (navigator.mediaDevices.getUserMedia) {
        
         console.log("start sending binary data...");
         var form = new FormData();
-        form.append('audio', blob,'pronounce');
+        form.append('audio', blob);//,'pronounce'
         
         $.ajax({
             data: {csrfmiddlewaretoken: '{{ csrf_token }}'},
@@ -144,6 +176,12 @@ if (navigator.mediaDevices.getUserMedia) {
           clipLabel.textContent = newClipName;
         }
       }
+  }
+
+    
+
+    recorder.onstop = function(e) {
+      
     }
 
     mediaRecorder.ondataavailable = function(e) {
