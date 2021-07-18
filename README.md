@@ -19,6 +19,7 @@ pip install django-import-export
 #### - 실행 화면
 #####  1. 메인 화면
 <img src="https://ifh.cc/g/qXo9JV.jpg">
+
 #####  2. 챗봇
 <img src="https://ifh.cc/g/6ZzGG4.png">
 
