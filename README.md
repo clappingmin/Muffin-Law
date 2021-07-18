@@ -15,3 +15,7 @@ pip install django-import-export
 
 #### - 메인 로고
 <img src="https://user-images.githubusercontent.com/48826021/100090298-51f64c00-2e96-11eb-870e-825a2357e336.png" width="200px">
+
+#### - 실행 화면
+<img src="https://ifh.cc/g/qXo9JV.jpg">
+
