@@ -18,6 +18,6 @@ pip install django-import-export
  ```
 
 ## 실행 화면
-###  챗봇
+###  챗봇 
 <img src="https://ifh.cc/g/6ZzGG4.png">
 
