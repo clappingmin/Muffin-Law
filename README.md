@@ -1,6 +1,6 @@
 ![header](https://capsule-render.vercel.app/api?type=waving&color=auto&text=%MuffinLaw%20%20&height=200&fontSize=100)
 
-## 프로젝트 기능
+## 프로젝트 요약
 - 발음 평가, 영어 손글씨 인식, 단어장, 단어 테스트, 유튜브 영어 듣기 기능
 - :computer: Python, Django, Tensorflow, Pronunciation API (AI hub)
 - :books: Final project
