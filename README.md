@@ -16,8 +16,3 @@ pip install django-cors-headers
 pip install -r req.text
 pip install django-import-export
  ```
-
-## 실행 화면
-###  챗봇 
-<img src="https://ifh.cc/g/6ZzGG4.png">
-
